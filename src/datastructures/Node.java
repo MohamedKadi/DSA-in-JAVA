@@ -10,4 +10,7 @@ public class Node {
     public int getValue(){
         return this.value;
     }
+    public int setValue(int value){
+        return this.value = value;
+    }
 }

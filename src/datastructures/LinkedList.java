@@ -94,4 +94,27 @@ public class LinkedList {
         }
 
     }
+
+    public Node get(int index){
+        int count = 0;
+        if(head == null && index < 0 && index> length){
+            return null;
+        }
+        Node temp = head;
+        while(temp.next!=null && count < index){
+            temp=temp.next;
+            count++;
+        }
+        return temp;
+    }
+
+    public boolean set(int index, int value){
+        Node setting = get(index);
+        if(setting == null){
+            return false;
+        }else{
+            setting.setValue(value);
+            return true;
+        }
+    }
 }

@@ -4,7 +4,56 @@ package datastructures;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(2);
+        LinkedList myLinkedList = new LinkedList(0);
+        myLinkedList.append(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+
+        System.out.println("Linked List before set():");
+        myLinkedList.printList();
+
+        myLinkedList.set(2, 99);
+
+        System.out.println("\nLinked List after set():");
+        myLinkedList.printList();
+        /*
+            EXPECTED OUTPUT:
+            ----------------
+            Linked List before set():
+            0
+            1
+            2
+            3
+
+            Linked List after set():
+            0
+            1
+            99
+            3
+
+        */
+
+
+        /*
+        myLinkedList.append(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+
+
+        System.out.println(myLinkedList.get(0).getValue());
+        System.out.println(myLinkedList.get(1).getValue());
+        System.out.println(myLinkedList.get(2).getValue());
+        System.out.println(myLinkedList.get(3).getValue());
+         */
+        /*
+            EXPECTED OUTPUT:
+            ----------------
+            3
+
+        */
+
+
+        /*
         myLinkedList.append(1);
 
         // (2) Items - Returns 2 Node
@@ -14,7 +63,7 @@ public class Main {
         // (0) Items - Returns null
         System.out.println(myLinkedList.removeFirst());
 
-
+         */
         /*
             EXPECTED OUTPUT:
             ----------------
