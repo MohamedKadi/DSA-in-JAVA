@@ -75,7 +75,23 @@ public class LinkedList {
             System.out.println(temp.getValue());
             temp = temp.next;
         }
+    }
 
+    public Node removeFirst(){
+        if(length == 0){
+            head = null;
+            tail = null;
+            return head;
+        }else{
+            length--;
+            if (length == 0) {
+                tail = null;
+            }
+            Node pre = head;
+            head = head.next;
+            pre.next = null;
+            return pre;
+        }
 
     }
 }
