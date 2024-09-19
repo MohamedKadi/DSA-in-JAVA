@@ -38,7 +38,6 @@ public class LinkedList {
         Node temp = head;
         Node pre = head;
 
-        int value = tail.getValue();
         while(temp.next != null){
             pre = temp;
             temp = temp.next;
@@ -116,5 +115,36 @@ public class LinkedList {
             setting.setValue(value);
             return true;
         }
+    }
+
+    public boolean insert(int index, int value){
+        System.out.println(length);
+        if(index > length || index < 0){
+
+            return false;
+        }else if(index == 0){
+            System.out.println("index == 0");
+            prepend(value);
+        }else if(index == length){
+            System.out.println("index == length");
+            append(value);
+
+        }else{
+            System.out.println("!index");
+            int count = 0;
+            Node newNode = new Node(value);
+            Node temp = head;
+            Node pre = head;
+            while(count < index){
+                count++;
+                pre = temp;
+                temp = temp.next;
+            }
+            newNode.next = temp;
+            pre.next = newNode;
+            length++;
+        }
+
+        return true;
     }
 }
