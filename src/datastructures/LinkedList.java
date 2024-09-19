@@ -147,4 +147,28 @@ public class LinkedList {
 
         return true;
     }
+
+    public Node remove(int index){
+        if(index > length || index < 0){
+
+            return head;
+        }else if(index == 0){
+            return removeFirst();
+        }else if(index == length){
+            return removeLast();
+        }else{
+            int count = 0;
+            Node temp = head;
+            Node pre = head;
+            Node after = head.next;
+            while(count < index){
+                count++;
+                pre = temp;
+                temp = temp.next;
+                after = temp.next;
+            }
+            pre.next = after;
+            return temp;
+        }
+    }
 }
