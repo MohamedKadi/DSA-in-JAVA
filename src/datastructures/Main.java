@@ -10,13 +10,28 @@ public class Main {
         myLinkedList.append(4);
         myLinkedList.append(5);
 
+        Node result = myLinkedList.findKthFromEnd(2); // Output: Node with value 4
+        System.out.println(result.getValue());
+        result = myLinkedList.findKthFromEnd(5); // Output: Node with value 1
+        System.out.println(result.getValue());
+        result = myLinkedList.findKthFromEnd(6); // Output: null
+        System.out.println(result);
+
+
+
+        /*
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
+
         // create a loop by connecting the tail to the second node
         myLinkedList.getTail().next = myLinkedList.getHead().next;
 
 
         System.out.println("Has Loop:");
         System.out.println(myLinkedList.hasLoop());
-        /*
+
             EXPECTED OUTPUT:
             ----------------
             Has Loop:
