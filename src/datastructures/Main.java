@@ -5,6 +5,45 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedList myLinkedList = new LinkedList(1);
+
+
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+
+        System.out.println("LL before reverse():");
+        myLinkedList.printList();
+
+        myLinkedList.reverse();
+
+        System.out.println("\nLL after reverse():");
+        myLinkedList.printList();
+        /*
+            EXPECTED OUTPUT:
+            ----------------
+            LL before reverse():
+            1
+            2
+            3
+            4
+
+            LL after reverse():
+            4
+            3
+            2
+            1
+
+        */
+
+
+
+
+
+
+
+
+
+        /*
         myLinkedList.append(2);
         myLinkedList.append(3);
         myLinkedList.append(4);
@@ -28,7 +67,7 @@ public class Main {
         System.out.println("LL after remove() of last node:");
         myLinkedList.printList();
 
-
+         */
         /*
             EXPECTED OUTPUT:
             ----------------

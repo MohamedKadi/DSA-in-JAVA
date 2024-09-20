@@ -171,4 +171,19 @@ public class LinkedList {
             return temp;
         }
     }
+
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.next;
+        Node before = null;
+        while(temp != null){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+
+        }
+    }
 }
