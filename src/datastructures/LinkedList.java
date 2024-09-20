@@ -186,4 +186,15 @@ public class LinkedList {
 
         }
     }
+
+    public Node findMiddleNode(){
+        double middle = Math.ceil(length/2);
+        Node temp = head;
+        int count = 0;
+        while(temp.next != null && count < middle){
+            temp = temp.next;
+            count++;
+        }
+        return temp;
+    }
 }
