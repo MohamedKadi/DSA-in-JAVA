@@ -59,11 +59,13 @@ public class LinkedList {
     }
 
 
-    public void getHead(){
+    public Node getHead(){
         System.out.println("Head: "+this.head.getValue());
+        return head;
     }
-    public void getTail(){
+    public Node getTail(){
         System.out.println("Tail: "+this.tail.getValue());
+        return tail;
     }
     public void getLength(){
         System.out.println("Length: "+length);
@@ -196,5 +198,18 @@ public class LinkedList {
             count++;
         }
         return temp;
+    }
+
+    public boolean hasLoop(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
     }
 }
