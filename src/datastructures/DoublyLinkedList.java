@@ -53,13 +53,14 @@ public class DoublyLinkedList {
         if( length == 1 ){
             head=null;
             tail=null;
+            length--;
         }else{
             tail = tail.prev;
             temp.prev = null;
             tail.next = null;
-
+            length--;
         }
-        length--;
+
         return temp;
     }
 
@@ -77,5 +78,97 @@ public class DoublyLinkedList {
 
     }
 
+    public Nodev2 removeFirst(){
+        Nodev2 temp = head;
+        if(head == null){
+            return null;
+        }
+        if(length == 1){
+            head = null;
+            tail = null;
+            length--;
+        }else{
+            head = head.next;
+            head.prev = null;
+            temp.next = null;
+            length--;
+        }
 
+        return temp;
+    }
+
+    public Nodev2 get(int index){
+        if(length < 0 || length < index || head == null){
+            return null;
+        }
+        Nodev2 temp = head;
+        int count = 0;
+        while(temp != null && count < index){
+            count++;
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public boolean set(int index, int value){
+        if(length < 0 || length < index || head == null){
+            return false;
+        }
+        Nodev2 temp = get(index);
+        temp.setValue(value);
+        return true;
+    }
+
+    public boolean insert(int index, int value){
+        Nodev2 newNode = new Nodev2(value);
+        if(length < 0 || length < index){
+            return false;
+        }
+
+        if(index == length){
+            append(value);
+            return true;
+        }
+        if(index == 0){
+            prepend(value);
+            return true;
+        }
+        Nodev2 temp = head;
+        for(int i =0; i < index-1;i++){
+            temp = temp.next;
+        }
+        Nodev2 after = temp.next;
+        temp.next = newNode;
+        newNode.prev = temp;
+        newNode.next = after;
+        after.prev = newNode;
+        length++;
+        return true;
+    }
+
+    public Nodev2 removeAt(int index){
+        if(length < 0 || length <= index){
+            return null;
+        }
+        if(index+1 == length){
+            return removeLast();
+        }
+        if(index == 0){
+            return removeFirst();
+        }
+        Nodev2 temp = head;
+        for(int i =0; i < index-1;i++){
+            temp = temp.next;
+        }
+        Nodev2 after = temp.next.next;
+        Nodev2 deleted = temp.next;
+
+        temp.next = after;
+        after.prev = temp;
+        deleted.prev = null;
+        deleted.next = null;
+        length--;
+
+        return deleted;
+    }
 }

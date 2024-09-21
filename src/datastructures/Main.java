@@ -9,11 +9,8 @@ public class Main {
         myDLL.append(1);
         myDLL.append(1);
         myDLL.append(2);
-        System.out.println("before:");
-        myDLL.printList();
-        myDLL.prepend(10);
-        myDLL.prepend(10);
-        System.out.println("after:");
+        System.out.println("after");
+        myDLL.removeAt(4);
         myDLL.printList();
 
 
