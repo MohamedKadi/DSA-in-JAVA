@@ -4,7 +4,20 @@ package datastructures;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(1);
+
+        //LinkedList myLinkedList = new LinkedList(1);
+        LinkedListV2 myLinkedList = new LinkedListV2(1);
+        myLinkedList.append(2);
+        myLinkedList.append(2);
+        myLinkedList.append(2);
+        myLinkedList.append(9);
+        myLinkedList.append(2);
+        myLinkedList.removeDuplicates();
+        myLinkedList.printList();
+
+
+
+        /*
         myLinkedList.append(2);
         myLinkedList.append(3);
         myLinkedList.append(4);
@@ -16,6 +29,8 @@ public class Main {
         System.out.println(result.getValue());
         result = myLinkedList.findKthFromEnd(6); // Output: null
         System.out.println(result);
+
+         */
 
 
 
