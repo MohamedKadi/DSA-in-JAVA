@@ -7,13 +7,11 @@ public class Main {
 
         //LinkedList myLinkedList = new LinkedList(1);
         LinkedListV2 myLinkedList = new LinkedListV2(1);
-        myLinkedList.append(2);
-        myLinkedList.append(2);
-        myLinkedList.append(2);
-        myLinkedList.append(9);
-        myLinkedList.append(2);
-        myLinkedList.removeDuplicates();
-        myLinkedList.printList();
+        myLinkedList.append(0);
+        myLinkedList.append(0);
+        myLinkedList.append(1);
+
+        System.out.println(myLinkedList.binaryToDecimal());
 
 
 
