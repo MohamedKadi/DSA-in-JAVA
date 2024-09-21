@@ -5,13 +5,30 @@ public class Main {
 
     public static void main(String[] args) {
 
+        DoublyLinkedList myDLL = new DoublyLinkedList(0);
+        myDLL.append(1);
+        myDLL.append(1);
+        myDLL.append(2);
+        System.out.println("before:");
+        myDLL.printList();
+        myDLL.prepend(10);
+        myDLL.prepend(10);
+        System.out.println("after:");
+        myDLL.printList();
+
+
+
+
+
         //LinkedList myLinkedList = new LinkedList(1);
-        LinkedListV2 myLinkedList = new LinkedListV2(1);
+        /*LinkedListV2 myLinkedList = new LinkedListV2(1);
         myLinkedList.append(0);
         myLinkedList.append(0);
         myLinkedList.append(1);
 
         System.out.println(myLinkedList.binaryToDecimal());
+
+         */
 
 
 
