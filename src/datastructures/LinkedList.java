@@ -254,4 +254,25 @@ public class LinkedList {
             temp = temp.next;
         }
     }
+    public void partitionListv2(int x) {
+        Node temp = head;
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        Node prev1 = dummy1;
+        Node prev2 = dummy2;
+        while(temp!=null){
+            if(temp.getValue() < x){
+                prev1.next = temp;
+                prev1 = temp;
+            }else{
+                prev2.next = temp;
+                prev2 = temp;
+            }
+            temp = temp.next;
+        }
+        prev2.next = null;
+        prev1.next = dummy2.next;
+
+        head = dummy1.next;
+    }
 }
