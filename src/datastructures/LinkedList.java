@@ -5,53 +5,57 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    public LinkedList(int value){
+    public LinkedList(int value) {
         Node newNode = new Node(value);
         head = newNode;
         tail = newNode;
         length = 1;
     }
-    public void append(int value){
+
+    public void append(int value) {
         length++;
         Node appendedNode = new Node(value);
-        if(head == null){
+        if (head == null) {
             head = appendedNode;
             tail = appendedNode;
-        }else{
+        } else {
             Node temp = head;
-            while(temp.next != null){
+            while (temp.next != null) {
                 temp = temp.next;
             }
             temp.next = appendedNode;
             tail = appendedNode;
         }
     }
-    public void makeEmpty(){
+
+    public void makeEmpty() {
         length = 0;
         head = null;
         tail = null;
     }
-    public Node removeLast(){
-        if(head == null){
+
+    public Node removeLast() {
+        if (head == null) {
             return null;
         }
         Node temp = head;
         Node pre = head;
 
-        while(temp.next != null){
+        while (temp.next != null) {
             pre = temp;
             temp = temp.next;
         }
         tail = pre;
         tail.next = null;
         length--;
-        if(length == 0){
+        if (length == 0) {
             head = null;
             tail = null;
         }
         return temp;
     }
-    public void prepend(int value){
+
+    public void prepend(int value) {
         Node newNode = new Node(value);
         newNode.next = head;
         head = newNode;
@@ -59,31 +63,34 @@ public class LinkedList {
     }
 
 
-    public Node getHead(){
-        System.out.println("Head: "+this.head.getValue());
+    public Node getHead() {
+        System.out.println("Head: " + this.head.getValue());
         return head;
     }
-    public Node getTail(){
-        System.out.println("Tail: "+this.tail.getValue());
+
+    public Node getTail() {
+        System.out.println("Tail: " + this.tail.getValue());
         return tail;
     }
-    public void getLength(){
-        System.out.println("Length: "+length);
+
+    public void getLength() {
+        System.out.println("Length: " + length);
     }
-    public void printList(){
+
+    public void printList() {
         Node temp = head;
-        while(temp != null){
+        while (temp != null) {
             System.out.println(temp.getValue());
             temp = temp.next;
         }
     }
 
-    public Node removeFirst(){
-        if(length == 0){
+    public Node removeFirst() {
+        if (length == 0) {
             head = null;
             tail = null;
             return head;
-        }else{
+        } else {
             length--;
             if (length == 0) {
                 tail = null;
@@ -96,48 +103,48 @@ public class LinkedList {
 
     }
 
-    public Node get(int index){
+    public Node get(int index) {
         int count = 0;
-        if(head == null && index < 0 && index> length){
+        if (head == null && index < 0 && index > length) {
             return null;
         }
         Node temp = head;
-        while(temp.next!=null && count < index){
-            temp=temp.next;
+        while (temp.next != null && count < index) {
+            temp = temp.next;
             count++;
         }
         return temp;
     }
 
-    public boolean set(int index, int value){
+    public boolean set(int index, int value) {
         Node setting = get(index);
-        if(setting == null){
+        if (setting == null) {
             return false;
-        }else{
+        } else {
             setting.setValue(value);
             return true;
         }
     }
 
-    public boolean insert(int index, int value){
+    public boolean insert(int index, int value) {
         System.out.println(length);
-        if(index > length || index < 0){
+        if (index > length || index < 0) {
 
             return false;
-        }else if(index == 0){
+        } else if (index == 0) {
             System.out.println("index == 0");
             prepend(value);
-        }else if(index == length){
+        } else if (index == length) {
             System.out.println("index == length");
             append(value);
 
-        }else{
+        } else {
             System.out.println("!index");
             int count = 0;
             Node newNode = new Node(value);
             Node temp = head;
             Node pre = head;
-            while(count < index){
+            while (count < index) {
                 count++;
                 pre = temp;
                 temp = temp.next;
@@ -150,20 +157,20 @@ public class LinkedList {
         return true;
     }
 
-    public Node remove(int index){
-        if(index > length || index < 0){
+    public Node remove(int index) {
+        if (index > length || index < 0) {
 
             return head;
-        }else if(index == 0){
+        } else if (index == 0) {
             return removeFirst();
-        }else if(index == length){
+        } else if (index == length) {
             return removeLast();
-        }else{
+        } else {
             int count = 0;
             Node temp = head;
             Node pre = head;
             Node after = head.next;
-            while(count < index){
+            while (count < index) {
                 count++;
                 pre = temp;
                 temp = temp.next;
@@ -174,13 +181,13 @@ public class LinkedList {
         }
     }
 
-    public void reverse(){
+    public void reverse() {
         Node temp = head;
         head = tail;
         tail = temp;
         Node after = temp.next;
         Node before = null;
-        while(temp != null){
+        while (temp != null) {
             after = temp.next;
             temp.next = before;
             before = temp;
@@ -189,39 +196,62 @@ public class LinkedList {
         }
     }
 
-    public Node findMiddleNode(){
-        double middle = Math.ceil(length/2);
+    public Node findMiddleNode() {
+        double middle = Math.ceil(length / 2);
         Node temp = head;
         int count = 0;
-        while(temp.next != null && count < middle){
+        while (temp.next != null && count < middle) {
             temp = temp.next;
             count++;
         }
         return temp;
     }
 
-    public boolean hasLoop(){
+    public boolean hasLoop() {
         Node slow = head;
         Node fast = head;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast){
+            if (slow == fast) {
                 return true;
             }
         }
         return false;
     }
 
-    public Node findKthFromEnd(int k){
-        if(k > length || k < 0){
+    public Node findKthFromEnd(int k) {
+        if (k > length || k < 0) {
             return null;
         }
         int kth = length - k;
         Node temp = head;
-        for(int i = 0 ; i < kth ; i++){
+        for (int i = 0; i < kth; i++) {
             temp = temp.next;
         }
         return temp;
+    }
+
+    public void partitionList(int x) {
+        Node e = null;
+        if (head == null) {
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            if (temp.getValue() >= x) {
+                Node temp2 = temp.next;
+                while (temp2 != null) {
+                    if (temp2.getValue() < x) {
+                        int y = temp.getValue();
+                        temp.setValue(temp2.getValue());
+                        temp2.setValue(y);
+                        break;
+                    }
+                    temp2 = temp2.next;
+                }
+            }
+            temp = temp.next;
+        }
     }
 }
